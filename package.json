@@ -1,12 +1,24 @@
 {
   "name": "formation-devops",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/en-zau/formation-devops.git"
+  },
+  "bugs": {
+    "url": "https://github.com/en-zau/formation-devops/issues"
+  },
+  "homepage": "https://github.com/en-zau/formation-devops#readme",
+  "description": "",
+  "dependencies": {
+    "save-dev": "^0.0.1-security",
+    "should": "^13.2.3"
+  }
 }
