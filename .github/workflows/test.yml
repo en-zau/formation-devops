@@ -1,0 +1,28 @@
+name: Pull request
+
+on: push
+
+jobs:
+  build_and_unit_test:
+    name: 'Tests unitaires'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node:
+          - 16
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '${{ matrix.node }}'
+      - uses: actions/checkout@v3
+      - name: 'Cache node_modules'
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-v${{ matrix.node }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-v${{ matrix.node }}-
+      - name: Install Dependencies
+        run: npm install
+      - name: Run tests
+        run: npm test
